@@ -7,7 +7,8 @@ async fn main() {
     // build our application with a single route
     let app = Router::new()
         .merge(routers::log_router())
-        .route("/", get(|| async { "Hello, World!" }));
+        .route("/", get(|| async { "Hello, World!" }))
+        .route("/health", get(|| async { "OK" }));
     // .route("/logs", get(services::get_logs));
 
     // run our app with hyper, listening globally on port 3000
