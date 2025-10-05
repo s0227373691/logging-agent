@@ -1,0 +1,17 @@
+{
+	"name": "Rust",
+	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
+	"containerEnv": {
+		"CARGO_HOME": "/workspaces/logging-agent/.cargo_cache",
+		"RUSTUP_HOME": "/workspaces/logging-agent/.cargo_cache/rustup"
+	},
+	"mounts": [
+		{
+			"source": "devcontainer-cargo-cache",
+			"target": "/workspaces/logging-agent/.cargo_cache",
+			"type": "volume"
+		}
+	],
+	"remoteUser": "root",
+	"postCreateCommand": "mkdir -p /workspaces/logging-agent/.cargo_cache /workspaces/logging-agent/.cargo_cache/rustup"
+}
