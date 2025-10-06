@@ -1,19 +1,23 @@
 {
     "name": "Rust",
-    "image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
-    "containerEnv": {
-        "CARGO_HOME": "/workspaces/logging-agent/.cargo_cache",
-        "RUSTUP_HOME": "/workspaces/logging-agent/.cargo_cache/rustup"
+    // "image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
+    "build": {
+        "dockerfile": "../Dockerfile", // 指向你專案根目錄的 Dockerfile
+        "context": ".." // 設定 build context 為專案根目錄
     },
-    "mounts": [
-        {
-            "source": "devcontainer-cargo-cache",
-            "target": "/workspaces/logging-agent/.cargo_cache",
-            "type": "volume"
-        }
-    ],
+    // "containerEnv": {
+    //     "CARGO_HOME": "/workspaces/logging-agent/.cargo_cache",
+    //     "RUSTUP_HOME": "/workspaces/logging-agent/.cargo_cache/rustup"
+    // },
+    // "mounts": [
+    //     {
+    //         "source": "devcontainer-cargo-cache",
+    //         "target": "/workspaces/logging-agent/.cargo_cache",
+    //         "type": "volume"
+    //     }
+    // ],
     "remoteUser": "root",
-    "postCreateCommand": "mkdir -p /workspaces/logging-agent/.cargo_cache /workspaces/logging-agent/.cargo_cache/rustup",
+    // "postCreateCommand": "mkdir -p /workspaces/logging-agent/.cargo_cache /workspaces/logging-agent/.cargo_cache/rustup",
     "customizations": {
         "vscode": {
             "extensions": [
